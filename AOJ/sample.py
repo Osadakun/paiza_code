@@ -1,29 +1,42 @@
-l1 = []
-l2 = []
-max_ans = 0
-n, le = map(int,input().split())
-for i in range((n+1)*le):
-    x = int(input())
-    if i < le:
-        l1.append(x)
+def cluc1(C,X):
+    if X == "R":
+        return C + 1
     else:
-        l2.append(x)
+        return C - 1
+
+def cluc2(C1,C2,X):
+    if X == "R":
+        return C1 + 1, C2 + 1
+    else:
+        return C1 - 1, C2 - 1
+
+def cluc3(C1,C2,C3,X):
+    if X == "R":
+        return C1 + 1,C2 + 1,C3 + 1,
+    else:
+        return C1 - 1,C2 - 1,C3 - 1,
+
+n = int(input())
+R,G,B = map(int,input().split())
+ans = "no"
 for i in range(n):
-    max = 100
-    for j in range(le):
-        z = l1[j] - l2[j]
-        if z == 0:
-            max = max
-        elif 0 < z < 11 or -11 < z < 0:
-            max -= 1
-        elif 10 < z < 21 or -21 < z < -10:
-            max -= 2
-        elif 20 < z < 31 or -31 < z < -20:
-            max -= 3
-        else:
-            max -= 5
-    if max_ans < max:
-        max_ans = max
-    for c in range(n):
-        l2.remove(l2[c])
-print((max_ans))
+    X, col = input().split()
+    if col == "R":
+        R = cluc1(R,X)
+    elif col == "G":
+        G = cluc1(G,X)
+    elif col == "B":
+        B = cluc1(B,X)
+    elif col == "Y":
+        R,G = cluc2(R,G,X)
+    elif col == "M":
+        R,B = cluc2(R,B,X)
+    elif col == "C":
+        B, G = cluc2(B,G,X)
+    else:
+        R,G,B = cluc3(R,G,B,X)
+    if R == G == B:
+        ans = R
+        break
+
+print(ans)
