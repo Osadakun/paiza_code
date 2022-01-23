@@ -1,16 +1,11 @@
-N = int(input())
-l = []
-for i in range(N):
+i = int(input())
+sum = 0
+f = 1
+for i in range(i):
     x = int(input())
-    l.append(x)
-M = int(input())
-for i in range(M):
-    a,b,c = map(int,input().split())
-    if l[a-1] < c:
-        l[b-1] += l[a-1]
-        l[a-1] -= l[a-1]
+    if x > f:
+        sum += x-f
     else:
-        l[a-1] -= c
-        l[b-1] += c
-for i in range(N):
-    print(l[i])
+        sum += f-x
+    f = x
+print(sum)
