@@ -1,11 +1,8 @@
-i = int(input())
-sum = 0
-f = 1
-for i in range(i):
-    x = int(input())
-    if x > f:
-        sum += x-f
-    else:
-        sum += f-x
-    f = x
-print(sum)
+S = input()
+S = S.replace("-", "")
+x = S.count("0")
+sum = 0 + x * 12
+S = S.replace("0", "")
+for i in S:
+    sum += int(i) + 2
+print(sum*2)
