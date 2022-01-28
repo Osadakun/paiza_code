@@ -1,21 +1,17 @@
-h,w = map(int, input().split())
-l = [[0]*w for i in range(h)]
-ans = []
-for i in range(h):
-    s = list(map(int, input().split()))
-    for j in range(w):
-        l[i][j] = s[j]
-for i in range(h):
-    for j in range(1,w+1):
-        a = sum(l[i][:j])
-        b = sum(l[i][j:])
-        if a == b:
-            ans.append(j)
+a,b = map(int,input().split())
+a *= 100
+flag = True
+s = a+b
+for i in range(10):
+    for j in range(1,10):
+        z = j * 10
+        l = i + z
+        l *= i
+        ans = s
+        ans += z
+        if ans == l:
+            print("%d %d" %(j,i))
+            flag = False
             break
-if ans == []:
+if flag:
     print("No")
-else:
-    print("Yes")
-    for i in range(h):
-        a = ans[i]
-        print("A"*a+"B"*(w-a))
