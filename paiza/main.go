@@ -16,6 +16,6 @@ func main() {
     if sc.Scan() {
         t = sc.Text()
     }
-    fmt.Println(s)
-    fmt.Println(t)
+    S := fmt.Sprintf("%s/%s", s,t)
+	fmt.Println(S)
 }
